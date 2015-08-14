@@ -20,11 +20,11 @@ class IGDB{
         }
       }
 
-      $url += "?" . implode("&", $optUrl);
+      $url .= "?" . implode("&", $optUrl);
     }
 
     $opts = array(
-      'http'=>array(
+      'http' => array(
         'method' => "GET",
         'header' => "Accept: application/json" .
                     "Authorization: Token token=\"" . $apikey . "\""
@@ -42,7 +42,7 @@ class IGDB{
   public function gamesGet($id, $callback){
     self::request('games/' . $id, $callback);
   }
-  public function gamesMeta($$callback){
+  public function gamesMeta($callback){
     self::request('games/meta', $callback);
   }
   public function gamesSearch($opts, $callback){
@@ -55,7 +55,7 @@ class IGDB{
   public function companiesGet($id, $callback){
     self::request('companies/' . $id, $callback);
   }
-  public function companiesMeta($$callback){
+  public function companiesMeta($callback){
     self::request('companies/meta', $callback);
   }
   public function companiesGames($opts, $id, $callback){
@@ -68,7 +68,7 @@ class IGDB{
   public function peopleGet($id, $callback){
     self::request('people/' . $id, $callback);
   }
-  public function peopleMeta($$callback){
+  public function peopleMeta($callback){
     self::request('people/meta', $callback);
   }
   public function peopleGames($opts, $id, $callback){
@@ -79,4 +79,5 @@ class IGDB{
   }
 
 }
+
 ?>
