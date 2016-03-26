@@ -8,10 +8,10 @@ class IGDB{
   private $endpoint = "https://www.igdb.com/api/v1/";
 
   private function request($parameters){
-  	$string = $parameters;
-  	$pattern = '?';
-	  $position = strpos($string, $pattern);
-  	$token = ($position === false) ? "?" : "&";
+	$string = $parameters;
+	$pattern = '?';
+	$position = strpos($string, $pattern);
+	$token = ($position === false) ? "?" : "&";
     return $response = file_get_contents($this->endpoint . $parameters . $token . "token=" . $this->apikey);
   }
 
@@ -29,7 +29,7 @@ class IGDB{
   }
 
   public function gamesSearch($query, $parameters = false){
-	  $query = preg_replace("/ /","-", $query);
+	$query = preg_replace("/ /","-", $query);
     return $this->request('games/search?q=' . $query . $parameters);
   }
 
