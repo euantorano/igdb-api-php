@@ -11,7 +11,7 @@ require("igdb.php");
 
 $igdb = new IGDB;
 
-print($igdb->games(1979))
+print($igdb->gameID(1979))
 
 ?>
 ```
